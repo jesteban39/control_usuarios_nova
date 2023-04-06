@@ -2,11 +2,17 @@
   "name": "control_usuarios_nova",
   "version": "0.1.0",
   "private": true,
+  "description": "Controlar la creación y gestión de los accesos de los usuarios a las diferentes aplicaciones de Novaventa",
   "scripts": {
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
     "lint": "next lint"
+  },
+  "author": {
+    "user": "jesteban39",
+    "name": "Esteban Quintero",
+    "email": "juanesqb28@gmail.com"
   },
   "dependencies": {
     "@types/node": "18.15.11",
