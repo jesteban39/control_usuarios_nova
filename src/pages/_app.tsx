@@ -1,17 +1,12 @@
 import * as React from 'react';
 import type { AppProps } from 'next/app';
+import Head from 'next/head';
 import { CacheProvider, EmotionCache } from '@emotion/react';
-import { ThemeProvider, CssBaseline, createTheme } from '@mui/material';
+import { ThemeProvider, CssBaseline } from '@mui/material';
 
 import createEmotionCache from '@app/utils/createEmotionCache';
 import theme from '@app/styles/theme';
 import '@app/styles/globals.css'
-
-// pantalla 2
-import Head from 'next/head';
-
-// fin import
-
 
 interface MyAppProps extends AppProps {
   emotionCache?: EmotionCache;

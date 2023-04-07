@@ -1,6 +1,7 @@
-import Head from 'next/head'
-import { Inter } from 'next/font/google'
-import styles from '@app/styles/Home.module.css'
+import Head from 'next/head';
+import { Inter } from 'next/font/google';
+import styles from '@app/styles/Home.module.css';
+import Login from '@app/pages/components/Login';
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -19,6 +20,7 @@ export default function Home() {
             Get started by editing&nbsp;
             <code className={styles.code}>src/pages/index.tsx</code>
           </p>
+          <Login onSubmit={() => { }} />
         </div>
       </main>
     </>
