@@ -1,6 +1,42 @@
-import '@app/styles/globals.css'
-import type { AppProps } from 'next/app'
+import * as React from 'react';
+import type { AppProps } from 'next/app';
+import { CacheProvider, EmotionCache } from '@emotion/react';
+import { ThemeProvider, CssBaseline, createTheme } from '@mui/material';
 
-export default function App({ Component, pageProps }: AppProps) {
-  return <Component {...pageProps} />
+import createEmotionCache from '@app/utils/createEmotionCache';
+import theme from '@app/styles/theme';
+import '@app/styles/globals.css'
+
+// pantalla 2
+import Head from 'next/head';
+
+// fin import
+
+
+interface MyAppProps extends AppProps {
+  emotionCache?: EmotionCache;
 }
+
+const clientSideEmotionCache = createEmotionCache();
+
+const MyApp: React.FunctionComponent<MyAppProps> = (props) => {
+  const { Component, emotionCache = clientSideEmotionCache, pageProps } = props;
+  return (
+    <CacheProvider value={emotionCache}>
+      <Head>
+        <meta
+          name='viewport'
+          content='initial-scale=1, width=device-width'
+        />
+      </Head>
+      <ThemeProvider theme={theme}>
+        {/* CssBaseline kickstart an elegant, consistent, and simple baseline to build upon.
+        remove the margins of all browsers and apply the material design background color */}
+        <CssBaseline />
+        <Component {...pageProps} />
+      </ThemeProvider>
+    </CacheProvider>
+  );
+}
+
+export default MyApp;
