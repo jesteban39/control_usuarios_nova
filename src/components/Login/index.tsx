@@ -63,7 +63,7 @@ const StyledButton = styled(Button)`
     margin-top: 20px;
 `;
 
-export default function ({ onSubmit }: LoginProps) {
+export default function Login ({ onSubmit }: LoginProps) {
     const [values, setValues] = useState(initialLoginState);
     const [errors, setErrors] = useState(initialLoginErrors);
     const [disabled, setDisabled] = useState(2);
