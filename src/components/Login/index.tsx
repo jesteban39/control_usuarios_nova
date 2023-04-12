@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
 import { Box, Button, TextField } from '@mui/material';
 
-import styles from './styles';
-import type { LoginProps, LoginState, LoginErrors } from './types';
+import styles from '@app/styles/login';
+import type { LoginProps, LoginState, LoginErrors } from '@app/types/login';
 
 const initialLoginState: LoginState = {
     username: '',
