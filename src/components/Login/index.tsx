@@ -2,19 +2,7 @@ import React, { useState } from 'react';
 import { Box, Button, TextField } from '@mui/material';
 
 import styles from './styles';
-
-interface LoginProps {
-    onSubmit: (username: string, password: string) => void;
-}
-
-type LoginState = {
-    username: string;
-    password: string;
-}
-type LoginErrors = {
-    username: { isValid: boolean, message: string };
-    password: { isValid: boolean, message: string };
-}
+import type { LoginProps, LoginState, LoginErrors } from './types';
 
 const initialLoginState: LoginState = {
     username: '',
@@ -44,7 +32,7 @@ const validate = (name: string, value: string): ['username' | 'password', boolea
     return [name, isValid, mesagge];
 }
 
-export default function Login ({ onSubmit }: LoginProps) {
+export default function Login({ onSubmit }: LoginProps) {
     const [values, setValues] = useState(initialLoginState);
     const [errors, setErrors] = useState(initialLoginErrors);
     const [disabled, setDisabled] = useState(2);
