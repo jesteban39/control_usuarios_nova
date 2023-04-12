@@ -1,6 +1,7 @@
-import { useState } from "react";
-import styled from "@emotion/styled";
-import { Box, Button, TextField } from "@mui/material";
+import React, { useState } from 'react';
+import { Box, Button, TextField } from '@mui/material';
+
+import styles from './styles';
 
 interface LoginProps {
     onSubmit: (username: string, password: string) => void;
@@ -43,26 +44,6 @@ const validate = (name: string, value: string): ['username' | 'password', boolea
     return [name, isValid, mesagge];
 }
 
-const StyledBox = styled(Box)`
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    width: 300px;
-    margin: auto;
-    margin-top: 10px;
-    padding: 20px;
-    box-shadow: 0px 3px 10px rgba(0, 0, 0, 0.2);
-    border-radius: 10px;
-`;
-
-const StyledTextField = styled(TextField)`
-    width: 100%;
-`;
-
-const StyledButton = styled(Button)`
-    margin-top: 20px;
-`;
-
 export default function Login ({ onSubmit }: LoginProps) {
     const [values, setValues] = useState(initialLoginState);
     const [errors, setErrors] = useState(initialLoginErrors);
@@ -84,8 +65,8 @@ export default function Login ({ onSubmit }: LoginProps) {
     }
 
     return (
-        <StyledBox component="form" onSubmit={handleSubmit}>
-            <StyledTextField
+        <Box css={styles} component="form" onSubmit={handleSubmit}>
+            <TextField
                 label="Nombre de usuario"
                 variant="outlined"
                 name="username"
@@ -94,7 +75,7 @@ export default function Login ({ onSubmit }: LoginProps) {
                 value={values.username.toUpperCase()}
                 onChange={handleChange}
             />
-            <StyledTextField
+            <TextField
                 label="Contraseña"
                 variant="outlined"
                 type="password"
@@ -104,13 +85,14 @@ export default function Login ({ onSubmit }: LoginProps) {
                 value={values.password}
                 onChange={handleChange}
             />
-            <StyledButton
+            <Button
                 variant="contained"
                 type="submit"
                 disabled={disabled !== 0}
             >
                 Iniciar sesión
-            </StyledButton>
-        </StyledBox>
+            </Button>
+            <div className='miDiv'>Mi div</div>
+        </Box>
     );
 }
